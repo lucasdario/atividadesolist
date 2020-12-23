@@ -1,4 +1,6 @@
 from textwrap import dedent
+from random import *
+import random
 
 
 def show_menu():
@@ -16,19 +18,40 @@ def show_menu():
 
 
 def list_martkeplaces():
-    list = ['Casas Bahia', 'Ponto Frio', 'Extra', 'Mercado Libre']
+    list = ['Casas Bahia', 'Ponto Frio', 'Extra',
+            'Mercado Libre', 'Americanas']
     return list
 
 
 def list_category():
-    list = ['Eletrônicos', 'Eletrodomésticos', 'Brinquedos']
-    return list
+    list = ['Eletrônicos', 'Eletrodomésticos', 'Brinquedos',
+            'Móveis', 'Informática', 'Telefonia', 'Serviços', 'Ofertas TV', 'Áudio', 'Bebês']
+    random_list = []
+    index = 0
+
+    while index < 3:
+        random_ = int(random_number(len(list)))
+        for i, name in enumerate(list):
+            if i == random_:
+                random_list.append(name)
+        index += 1
+    return random_list
 
 
 def list_sub_category():
-    list = ['Smartphone', 'Geladeira', 'Freezer',
-            'Lava e Seca', 'Bonecos', 'Pelúcias']
-    return list
+    list = ['Smartphone', 'PC', 'Notebook', 'Sofá', 'Geladeira', 'Freezer',
+            'Lava e Seca', 'Bonecos', 'Pelúcias', 'Cama', 'Impressora', 'HD Externo',
+            'PenDrive', 'Carrinho de bebê', 'Chupeta', 'Fraldas']
+    random_list = []
+    index = 0
+
+    while index < 5:
+        random_ = int(random_number(len(list)))
+        for i, name in enumerate(list):
+            if i == random_:
+                random_list.append(name)
+        index += 1
+    return random_list
 
 
 def check_int(var):
@@ -46,3 +69,7 @@ def print_info(message: str):
         => {message}
         ***********************
     '''))
+
+
+def random_number(max: int):
+    return randrange(0, int(max))
