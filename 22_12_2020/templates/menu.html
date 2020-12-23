@@ -1,10 +1,20 @@
-<h3>-- Markteplaces --</h3><hr/>
-    <a href='/marketplace'>
-        <h4>--Lista de Marketplaces--</h4>
-    </a>
-    <a href='/categorias'>
-        <h4>--Lista de Categorias--</h4>
-    </a>
-    <a href='/subcategorias'>
-        <h4>--Lista de Sub Categorias--</h4>
-    </a> 
+{%extends 'base.html'%}
+{%block body%}
+<section class="hero is-medium is-link is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Marketplaces <b>olist</b>
+            </h1>
+            <h2 class="subtitle">
+                Escolha sua opção abaixo
+            </h2>
+            <div class="buttons">
+                <a class="button is-primary is-rounded" href="/marketplace"> Marketplaces</a>
+                <a class="button is-primary is-rounded" href="/categorias"> Categorias</a>
+                <a class="button is-primary is-rounded" href="/subcategorias"> Sub Categorias</a>
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock%}

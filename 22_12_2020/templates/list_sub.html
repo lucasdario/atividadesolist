@@ -1,6 +1,16 @@
-{% for i in list %}
-  <p><b>=>{{ i }}</b></p>
-{% endfor %}
-<a href='/'>
-  <button>Voltar ao início</button>
-</a>  
+{%extends 'base.html'%}
+{%block body%}
+<div class="columns">
+  <div class="column is-11 is-offset-1">
+    <div class="content">
+      <ol type="I">
+        {% for i in list %}
+        <li>
+          <p class="is-medium">{{ i }}</p>
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+</div>
+{%endblock%}
