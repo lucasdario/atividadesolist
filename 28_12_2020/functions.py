@@ -1,7 +1,8 @@
-from os import read
+from os import read, readlink
 from textwrap import dedent
 from random import *
 from processing_data import *
+import datetime as datetime
 
 
 def boot():
@@ -23,15 +24,13 @@ def show_menu():
 
 
 def list_martkeplaces():
-    # list = ['Casas Bahia', 'Ponto Frio', 'Extra',
-    #         'Mercado Libre', 'Americanas']
+    log('list_marketplaces')
     list = readfiles(0)
     return list
 
 
 def list_category():
-    # list = ['Eletrônicos', 'Eletrodomésticos', 'Brinquedos',
-    #         'Móveis', 'Informática', 'Telefonia', 'Serviços', 'Ofertas TV', 'Áudio', 'Bebês']
+    log('list_category')
     list = readfiles(1)
     random_list = []
     index = 0
@@ -46,9 +45,7 @@ def list_category():
 
 
 def list_sub_category():
-    # list = ['Smartphone', 'PC', 'Notebook', 'Sofá', 'Geladeira', 'Freezer',
-    #         'Lava e Seca', 'Bonecos', 'Pelúcias', 'Cama', 'Impressora', 'HD Externo',
-    #         'PenDrive', 'Carrinho de bebê', 'Chupeta', 'Fraldas']
+    log('list_sub_category')
     list = readfiles(2)
     random_list = []
     index = 0
@@ -81,3 +78,59 @@ def print_info(message: str):
 
 def random_number(max: int):
     return randrange(0, int(max))
+
+
+def log(function_name: str):
+    root = 'files/'
+    file = open(f'{root}log.txt', 'a')
+    data = datetime.datetime.now()
+    file.write(data.strftime(
+        f"%d/%m/%Y às %H:%M:%S => Acesso a função {function_name}\n"))
+    file.close()
+
+
+def link(user_option: int, operation_type: int):
+    marketplace_name = ''
+    category_name = ''
+    category_position = ''
+    sub_category_position = ''
+    sub_category_name = ''
+    lst_final = []
+
+# ESTE BLOCO LOCALIZA O NOME DO MARKEPLACE
+    lst_martkeplaces = list_martkeplaces()
+    for i in lst_martkeplaces:
+        temp_ = i.split(',')
+        if temp_[0] == str(user_option):
+            marketplace_name = temp_[1]
+
+# ESTE BLOCO LOCALIZA A CATEGORIA e SUBCATEGORIA RELACIONADA COM O MARKETPLACE
+    lst_link = readfiles(3)
+    for j in lst_link:
+        temp_ = j.split(',')
+        if temp_[0] == str(user_option):
+            category_position = temp_[1]
+
+    for o in lst_link:
+        temp_ = o.split(',')
+        if temp_[0] == str(user_option):
+            sub_category_position = temp_[2]
+
+# ESTE BLOCO LOCALIZA O NOME DA CATEGORIA
+    lst_category = list_category()
+    for p in lst_category:
+        temp_ = p.split(',')
+        if temp_[0] == str(category_position):
+            category_name = temp_[1]
+
+# ESTE BLOCO LOCALIZA O NOME DA SUBCATEGORIA
+    lst_sub_category = list_sub_category()
+    for y in lst_sub_category:
+        temp_ = y.split(',')
+        if temp_[0] == str(sub_category_position):
+            sub_category_name = temp_[1]
+
+    print(f'{marketplace_name} - {category_name} - {sub_category_name}')
+
+
+#link(0, 0)
