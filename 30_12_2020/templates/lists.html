@@ -1,0 +1,13 @@
+{%extends 'base.html'%}
+{%block body%}
+<br />
+{% for i in list %}
+<div class="columns">
+  <div class="column is-11 is-offset-1">
+    <a class="button is-primary is-rounded" href="{{path}}">
+      {{i}}
+    </a>
+  </div>
+</div>
+{% endfor %}
+{%endblock%}
