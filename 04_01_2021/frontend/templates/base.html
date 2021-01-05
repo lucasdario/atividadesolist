@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html style="background-color:#F7F7F7;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bulma.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/javascript.util/0.12.12/javascript.util.min.js"
+        integrity="sha512-oHBLR38hkpOtf4dW75gdfO7VhEKg2fsitvHZYHZjObc4BPKou2PGenyxA5ZJ8CCqWytBx5wpiSqwVEBy84b7tw=="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar is-transparent">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <img src="https://i1.wp.com/vagas.byintera.com/wp-content/uploads/2020/03/logo-olist.png?w=407&ssl=1"
+                    alt="OTS - olist" width="70" height="28">
+            </a>
+        </div>
+
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/">
+                    Início
+                </a>
+                <a class="navbar-item" href="https://www.olist.com">
+                    Site oficial
+                </a>
+            </div>
+        </div>
+    </nav>
+    {%block body%}
+    {%endblock%}
+    <hr />
+</body>
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            <strong>OTS</strong>. Lista de Marketplaces e categorias</a>.
+            <span class="icon">
+                <i class="fab fa-lg fa-github"></i>
+            </span>
+        </p>
+        <p><strong>ATENÇÃO:</strong> Conteúdo de estudo</p>
+    </div>
+</footer>
+
+</html>
